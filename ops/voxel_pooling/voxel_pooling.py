@@ -2,18 +2,7 @@
 import torch
 from torch.autograd import Function
 
-import os
-import importlib.util
-
-# Define the path to the .so file
-module_path = os.path.join(os.path.dirname(__file__), 'voxel_pooling_ext.cpython-38-x86_64-linux-gnu.so')
-
-# Load the .so file as a module
-spec = importlib.util.spec_from_file_location("voxel_pooling_ext", module_path)
-voxel_pooling_ext = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(voxel_pooling_ext)
-
-# Now you can use voxel_pooling_ext like a regular imported module
+from . import voxel_pooling_ext
 
 
 
